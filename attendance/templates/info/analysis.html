@@ -1,0 +1,58 @@
+{% extends 'info/base.html' %}
+{% block content %}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    analysis_section{
+        max-width:1200px;
+        margin:0 auto;
+    }
+    .nav>li>a{
+            position: relative;
+    display: block;
+    padding: 10px 15px;
+    }
+    .nav-tabs>li>a{
+        margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    }
+    .nav-tabs>li.active>a{
+            color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    }
+    .nav-tabs>li{
+        margin-bottom: -1px;
+    }
+</style>
+<div class="container">
+<section class="analysis_section text-center">
+
+	<h2>Analysis</h2>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#manual">Manual</a></li>
+        <li><a data-toggle="tab" href="#file">File</a></li>
+        <li><a data-toggle="tab" href="#googles">Google Spreadsheets</a></li>
+    </ul>
+	<div class="tab-content">
+        <div id="manual" class="tab-pane in active">
+            <h2>Manual</h2>
+        </div>
+        <div id="file" class="tab-pane">
+        <h2>File upload</h2>
+        <form>
+        <input type="file" name="file">
+        </form>
+        </div>
+        <div id="googles" class="tab-pane">
+            <h2>google</h2>
+		
+        </div>
+	</div>
+</section>
+</div>
+{% endblock content %}
+
