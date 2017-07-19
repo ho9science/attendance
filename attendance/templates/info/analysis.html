@@ -27,31 +27,88 @@
     .nav-tabs>li{
         margin-bottom: -1px;
     }
+    .nav-tabs-color{
+        color:#999;
+    }
+    .file_input_box{
+        color: #333;
+        border: 1px solid #ccc;
+        width:90%;
+    }
+    .manual_div_box{
+            color: #c09853;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 1em;
+    width:90%;
+    }
+    .tab-content-mtop{
+        margin-top:1em;
+    }
+    .cursor_pointer{
+        cursor: pointer;
+    }
+.glyphicons-chevron-right{
+    background: url(../../static/images/glyphicons-224-chevron-right.png);
+}
+.glyphicons-chevron-dwon{
+    background: url(../../static/images/glyphicons-602-chevron-down.png);
+}
 </style>
+<script>
+function hideFileOn(){
+    $(this).children('span').removeClass("glyphicon-chevron-right");
+    $(".view_file_upload").toggle();   
+    //$(this).addClass("glyphicon-chevron-down");
+}
+function hideConnectOn(){
+    $(".view_google_upload").toggle();
+}
+</script>
 <div class="container">
-<section class="analysis_section text-center">
+<section class="analysis_section">
 
-	<h2>Analysis</h2>
+	<h2>Start</h2>
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#manual">Manual</a></li>
-        <li><a data-toggle="tab" href="#file">File</a></li>
-        <li><a data-toggle="tab" href="#googles">Google Spreadsheets</a></li>
+        <li class="active"><a data-toggle="tab" href="#manual" class="nav-tabs-color">Manual</a></li>
+        <li><a data-toggle="tab" href="#file" class="nav-tabs-color">File</a></li>
+        <li><a data-toggle="tab" href="#googles" class="nav-tabs-color">Additional Data</a></li>
     </ul>
-	<div class="tab-content">
+    <div class="tab-content">
         <div id="manual" class="tab-pane in active">
-            <h2>Manual</h2>
+            <h2 class="tab-content-mtop">Manual</h2>
         </div>
-        <div id="file" class="tab-pane">
-        <h2>File upload</h2>
-        <form>
-        <input type="file" name="file">
+        
+        <div id="file" class="tab-pane" id="tt">
+            <h2 class="tab-content-mtop" id="sex"><span id="test" class="glyphicon glyphicons-chevron-right cursor_pointer" onclick=hideFileOn()></span>Upload Data</h2>
+            <hr>
+            <div class="view_file_upload">
+                <form>
+        
+        <input type="file" name="file" class="file_input_box">
+        <div class="manual_div_box">upload to file data </div>
+        <button>save</button>
         </form>
+            </div>
+        
+        
+        <h2 class="tab-content-mtop"><span id="test" class="glyphicon glyphicons-chevron-right cursor_pointer" onclick=hideConnectOn()></span>Connect Data</h2>
+        <hr>
+        <div class="view_google_upload">
+            <form>
+            <input type="text" name="name" class="file_input_box">
+            <div class="manual_div_box">put your google spreadsheet path to data </div>
+            <button>save</button>
+            </form>
+        </div>
         </div>
         <div id="googles" class="tab-pane">
-            <h2>google</h2>
-		
+            <h2 class="tab-content-mtop">Additional Data</h2>
+        
         </div>
-	</div>
+    </div>
 </section>
 </div>
 {% endblock content %}
