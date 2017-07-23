@@ -85,12 +85,12 @@ function hideConnectOn(){
             <h2 class="tab-content-mtop" id="sex"><span id="test" class="glyphicon glyphicons-chevron-right cursor_pointer" onclick=hideFileOn()></span>Upload Data</h2>
             <hr>
             <div class="view_file_upload">
-                <form>
-        
-        <input type="file" name="file" class="file_input_box">
-        <div class="manual_div_box">upload to file data </div>
-        <button>save</button>
-        </form>
+            <form action="{% url 'upload' %}" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="myfile" class="file_input_box">
+            <div class="manual_div_box">upload to file data </div>
+            <button type="submit">save</button>
+            </form>
             </div>
         
         
